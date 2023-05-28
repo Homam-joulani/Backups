@@ -1,0 +1,9 @@
+BEGIN:VCARD
+VERSION:3.0
+FN;CHARSET=utf-8:Ahmad Abu aisha
+N;CHARSET=utf-8:aisha;Ahmad;Abu;;
+TEL;WORK=cell:+96853664456
+EMAIL:Ahmad@example.com
+URL:
+TITLE;CHARSET=utf-8:
+END:VCARD

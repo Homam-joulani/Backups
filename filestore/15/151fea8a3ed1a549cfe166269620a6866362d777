@@ -1,0 +1,117 @@
+<!-- 
+Licensed Materials - Property of IBM
+
+(C) Copyright IBM Corporation 2018. All Rights Reserved.
+US Government Users Restricted Rights- Use, duplication or disclosure
+restricted by GSA ADP Schedule Contract with IBM Corp.
+-->
+
+
+
+
+
+
+
+
+
+
+
+<!DOCTYPE html>
+<html lang="en-US" xmlns="http://www.w3.org/1999/xhtml">
+    <head>
+     	<meta http-equiv="X-UA-Compatible" content="IE=edge;IE=11">
+        <meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1" />
+        <meta name="apple-mobile-web-app-capable" content="yes">
+
+        <title>Process Portal</title>
+        
+        
+            <style type="text/css">html{display:none}</style>
+        
+        
+        <link rel="stylesheet" type="text/css" href="css/login.css" />
+        <link type="image/x-icon" rel="shortcut icon" href="img/favicon.ico">
+		<link type="image/x-icon" rel="icon" href="img/favicon.ico">
+		<link rel="apple-touch-icon-precomposed" href="img/bookmark.png">
+		
+
+		
+    </head>
+    
+    <body dir="ltr">
+    
+        <div class="container" role="main">
+            <div class="bpm-logo">
+                <h3 class="bpm">Business Automation Workflow</h3>
+                <img class="logo" src="img/bpm-logo.png" alt="" />
+            </div>
+            <div class="content">
+                <div class="responsive-portal">
+                    <div class="login">
+                        <h3 class="sign-in">Sign in to Business Automation Workflow</h3>
+                        <div class="loginForm">
+                            
+                            <form method="post" id= "signInForm" action="j_security_check" class="login-form">
+                                <label for="username" class="login-text" id="user_id">Username</label>
+                                <input id="username" class="login-field" type="text" name="j_username" autocapitalize="off" autocorrect="off" tabindex="0" autofocus />
+                                <label for="password" class="login-text" id="password_label">Password</label>
+                                <input name="j_password" id="password" type="password" class="login-field" autocomplete="off" autocorrect="off" tabindex="0"></input>
+                                <div class="hidden-submit">
+                                	<input type="submit" tabindex="-1" />
+                                </div>
+                                <a class="button ok" tabindex="0" href="javascript:submitForm();">
+                                    <span class="submit-text">Continue</span>
+
+                                    <img class="arrow" src="img/arrow.png" alt="" />
+                                    
+                                </a>
+                            </form>
+                        </div>
+                        <div class="copyright">
+                            Licensed Materials - Property of IBM. &copy; Copyright 2008, 2018 IBM Corporation. IBM, the IBM logo, and WebSphere are trademarks of IBM Corporation, registered in many jurisdictions worldwide. Other product and service names might be trademarks of IBM or other companies.
+                        </div>
+                    </div>
+                    <img class="ibm-logo" src="img/ibm-logo.png" alt="" />
+                </div>
+            </div>
+        </div>
+
+        <script type="text/javascript">
+      		//clear session cache
+        	if(window.sessionStorage) {
+				window.sessionStorage.clear();
+			}
+      
+            // Prevent Cross Frame Scripting
+            
+                if (self == top) {
+                 document.documentElement.style.display = 'block';
+                } else {
+                 top.location = self.location;
+                }
+            
+            
+            function doOnSubmit() {
+                /* 
+                We want to make sure the applet has been loaded before we log in so that we can get the correct locale/time zone info from the client. If all else fails we assume GMT... */
+                try {
+                    setCookie("ibm.bpm.timezoneOffset", new Date().getTimezoneOffset(), null, "/",null,true);
+                } catch(ex) {
+                    //do nothing
+                }
+                return true;
+            };
+
+            function submitForm() {
+                var form = document.getElementById("signInForm");
+                form.submit();
+            };
+
+            // Focus on the username field if HTML5 autofocus isn't supported by the browser
+            window.onload = function() {
+                document.getElementById('username').focus();
+            };
+        </script>
+    </body>
+</html>
